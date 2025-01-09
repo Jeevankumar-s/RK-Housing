@@ -4,9 +4,18 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState } from 'react';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const socials = [
+    { name: 'facebook', icon: <FaFacebookF /> },
+    { name: 'twitter', icon: <FaTwitter /> },
+    { name: 'instagram', icon: <FaInstagram /> },
+    { name: 'linkedin', icon: <FaLinkedin /> },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -128,9 +137,9 @@ function App() {
             <div className="bg-white/95 backdrop-blur-sm p-6 rounded-xl shadow-lg">
               <Tabs defaultValue="buy" className="mb-6">
                 <TabsList className="grid w-full grid-cols-3 max-w-[400px]">
-                  <TabsTrigger value="buy">Buy</TabsTrigger>
-                  <TabsTrigger value="rent">Rent</TabsTrigger>
-                  <TabsTrigger value="sell">Sell</TabsTrigger>
+                  <TabsTrigger className="mr-1" value="buy">Buy</TabsTrigger>
+                  <TabsTrigger className="mr-1" value="rent">Rent</TabsTrigger>
+                  <TabsTrigger className="mr-1" value="sell">Sell</TabsTrigger>
                 </TabsList>
                 <TabsContent value="buy" className="mt-4">
                   <div className="flex flex-col md:flex-row gap-4">
@@ -243,7 +252,7 @@ function App() {
                 Explore our handpicked selection of premium properties, each offering unique features and exceptional value.
               </p>
             </div>
-            <Button variant="outline" className="hidden md:flex">
+            <Button className="hidden md:flex">
               View All Properties <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
@@ -251,9 +260,9 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: "Modern Villa",
+                title: "Plot A",
                 price: "$1,200,000",
-                location: "Beverly Hills, CA",
+                location: "Mogappiar, Near Vijaya Bank",
                 image: "https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3",
                 beds: 5,
                 baths: 4,
@@ -261,9 +270,9 @@ function App() {
                 features: ["Pool", "Garden", "Garage"]
               },
               {
-                title: "Luxury Penthouse",
+                title: "Plot B",
                 price: "$2,500,000",
-                location: "Manhattan, NY",
+                location: "Anna nagar, Near Metro Station",
                 image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3",
                 beds: 3,
                 baths: 3,
@@ -271,15 +280,15 @@ function App() {
                 features: ["Terrace", "Gym", "Doorman"]
               },
               {
-                title: "Waterfront Estate",
+                title: "Plot C",
                 price: "$3,800,000",
-                location: "Miami Beach, FL",
+                location: "Korattur, Opposite to Government School",
                 image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3",
                 beds: 6,
                 baths: 5,
                 sqft: 4500,
                 features: ["Beach Access", "Dock", "Tennis Court"]
-              }
+              },
             ].map((property, index) => (
               <Card key={index} className="overflow-hidden group">
                 <div className="relative h-64">
@@ -381,7 +390,7 @@ function App() {
                   <p className="text-gray-600 text-center">{service.description}</p>
                 </CardContent>
                 <CardFooter className="justify-center">
-                  <Button variant="outline">Learn More</Button>
+                  <Button>Learn More</Button>
                 </CardFooter>
               </Card>
             ))}
@@ -504,17 +513,18 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 py-16">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">DreamHome</h3>
+              <img src="https://res.cloudinary.com/dprxsgnqn/image/upload/v1736438221/WhatsApp_Image_2025-01-09_at_21.08.43_7158e50a_2_gfkebz.png" className="logo-image-footer" alt="Logo" />
               <p className="text-gray-400 mb-6">
                 Your trusted partner in finding the perfect property. With years of experience and dedication to excellence.
               </p>
               <div className="flex gap-4">
-                {['facebook', 'twitter', 'instagram', 'linkedin'].map((social) => (
-                  <Button key={social} variant="ghost" size="icon" className="hover:text-white">
-                    <span className="sr-only">{social}</span>
-                    <Home className="w-5 h-5" />
-                  </Button>
-                ))}
+              {
+                socials.map((social) => (
+                  <button key={social.name} variant="ghost" size="icon" className="hover:text-white">
+                    {social.icon}
+                  </button>
+                ))
+              }
               </div>
             </div>
             
@@ -541,19 +551,19 @@ function App() {
               <ul className="space-y-4">
                 <li className="flex items-center gap-2">
                   <MapPin className="w-5 h-5" />
-                  <span>123 Real Estate Ave, NY 10001</span>
+                  <span>No:20, BBCL Villa Haven</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone className="w-5 h-5" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+91 647-8292-832</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail className="w-5 h-5" />
-                  <span>info@dreamhome.com</span>
+                  <span>info@rkhousing.com</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Clock className="w-5 h-5" />
-                  <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                  <span>Mon - Fri: 9:00 AM - 8:00 PM</span>
                 </li>
               </ul>
             </div>
@@ -561,7 +571,7 @@ function App() {
           
           <div className="border-t border-gray-800 py-8 text-center">
             <p className="text-gray-400">
-              © 2024 DreamHome. All rights reserved. | Privacy Policy | Terms of Service
+              © 2024 RK Housing. All rights reserved. | Privacy Policy | Terms of Service
             </p>
           </div>
         </div>

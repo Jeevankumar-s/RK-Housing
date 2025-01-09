@@ -49,6 +49,7 @@ button {
   background-color: #242424;
   cursor: pointer;
   transition: border-color 0.25s;
+  color: whitesmoke;
 }
 button:hover {
   border-color: #646cff;
@@ -141,7 +142,7 @@ button:focus-visible {
     height: auto;
     display: block;
     margin: 0 auto;
-    border-radius: 10px; /* Rounded corners */
+    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     border: 2px solid #333; /* Border around the logo */
     transition: transform 0.3s ease-in-out; /* Smooth scaling effect */
@@ -150,3 +151,20 @@ button:focus-visible {
 .logo-image:hover{
    transform: scale(1.05); 
 }
+
+
+.logo-image-footer{
+     max-width: 150px;
+     margin-bottom: 20px;
+     height: auto;
+     display: block;
+     /* margin: 0 auto; */
+     border-radius: 5px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+     border: 2px solid #333; /* Border around the logo */
+     transition: transform 0.3s ease-in-out; /* Smooth scaling effect */
+ }
+ 
+ .logo-image-footer:hover{
+    transform: scale(1.05); 
+ }
